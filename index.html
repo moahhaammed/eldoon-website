@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELDOON</title>
+    <style>
+        body {
+            background-image: url('images/background-collage-blur.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #ronaldo-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        #ronaldo-button img {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <button id="ronaldo-button">
+       <img src="images/ronaldo-button-highlight.png" alt="Ronaldo Button">
+    </button>
+
+    <audio id="suu-sound" src="suu-sound.mp3"></audio>
+
+    <script>
+        const button = document.getElementById('ronaldo-button');
+       const suuSound = new Audio('sounds/suu-sound.mp3');
+
+        button.addEventListener('click', () => {
+            suuSound.play();
+        });
+    </script>
+</body>
+</html>
