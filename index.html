@@ -6,7 +6,7 @@
     <title>ELDOON</title>
     <style>
         body {
-            background-image: url('images/background-collage-blur.jpg');
+           background-image: url('background-collage-blur.jpg');
             background-size: cover;
             background-position: center;
             margin: 0;
@@ -28,15 +28,14 @@
 </head>
 <body>
     <button id="ronaldo-button">
-       <img src="images/ronaldo-button-highlight.png" alt="Ronaldo Button">
+    <img src="ronaldo-button-highlight.png" alt="Ronaldo Button">
     </button>
 
     <audio id="suu-sound" src="suu-sound.mp3"></audio>
 
     <script>
         const button = document.getElementById('ronaldo-button');
-       const suuSound = new Audio('sounds/suu-sound.mp3');
-
+      const suuSound = document.getElementById('suuSound');
         button.addEventListener('click', () => {
             suuSound.play();
         });
