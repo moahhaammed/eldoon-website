@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELDOON</title>
+    <style>
+        body {
+            background-image: url('background-collage.jpg'); /* صورة الخلفية */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* طبقة ضبابية فوق الخلفية */
+        #background-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(2px); /* ضبابية أخف للخلفية */
+            z-index: 1;
+        }
+
+        /* حاوية لتجنب تأثير الضبابية على الزر */
+        #content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* اسم الموقع */
+        h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        /* زر رونالدو */
+        #ronaldo-button img {
+            width: 200px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* توهج بسيط */
+            border-radius: 20px; /* حواف دائرية للزر */
+            filter: none; /* إزالة الضبابية عن الزر */
+        }
+
+        #ronaldo-button img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 1); /* توهج أقوى عند التمرير */
+        }
+
+        /* حركة عند الضغط */
+        #ronaldo-button img:active {
+            transform: scale(1.3) rotate(10deg); /* تكبير مع دوران خفيف عند الضغط */
+            transition: transform 0.1s ease-out; /* حركة سريعة */
+        }
+
+        /* وميض سريع عند الضغط */
+        @keyframes flash {
+            0% { box-shadow: 0 0 30px rgba(255, 255, 0, 1); }
+            50% { box-shadow: 0 0 50px rgba(255, 255, 255, 1); }
+            100% { box-shadow: 0 0 30px rgba(255, 255, 0, 1); }
+        }
+
+        .flash-effect {
+            animation: flash 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- طبقة ضبابية فوق الخلفية -->
+    <div id="background-blur"></div>
+
+    <!-- المحتوى الرئيسي -->
+    <div id="content">
+        <h1>ELDOON</h1>
+        <div id="ronaldo-button">
+            <img src="ronaldo-jump.png" alt="Cristiano Ronaldo" onclick="playSoundAndAnimate()">
+        </div>
+    </div>
+
+    <!-- ملف الصوت -->
+    <audio id="siii-sound" src="siii.mp3"></audio>
+
+    <script>
+        function playSoundAndAnimate() {
+            var audio = document.getElementById('siii-sound');
+            var button = document.querySelector('#ronaldo-button img');
+
+            // تشغيل الصوت
+            audio.play();
+
+            // إضافة تأثير الحركة
+            button.classList.add('flash-effect');
+
+            // إزالة التأثير بعد انتهاء الحركة
+            setTimeout(function() {
+                button.classList.remove('flash-effect');
+            }, 500);
+        }
+    </script>
+</body>
+</html>
